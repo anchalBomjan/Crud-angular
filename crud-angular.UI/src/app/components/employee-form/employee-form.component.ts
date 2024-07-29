@@ -1,41 +1,91 @@
 import { Component, inject } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpService } from '../../http.service';
 import { IEmployee } from '../../interfaces/employee';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-employee-form',
   standalone: true,
-  imports: [MatInputModule, MatButtonModule, FormsModule, ReactiveFormsModule],
+  imports: [MatInputModule, MatButtonModule,FormsModule,CommonModule],
   templateUrl: './employee-form.component.html',
   styleUrl: './employee-form.component.css'
 })
 export class EmployeeFormComponent {
 
-  httpService = inject(HttpService);
-  formbuilder = inject(FormBuilder);
-  router = inject(Router);
-  employeeForm = this.formbuilder.group({
-    name: ['', [Validators.required]],
-    email: ['', [Validators.required, Validators.email]],
-    phone: ['', []],
-    age: [''],
-    salary: ['']
-  });
-  onSubmit() {
-    console.log(this.employeeForm.value);
-    const employee: IEmployee = {
-      name: this.employeeForm.value.name!,
-      email: this.employeeForm.value.email!,
-      phone: this.employeeForm.value.phone!,
-      age: this.employeeForm.value.age!,
-      salary: this.employeeForm.value.salary!,
+  // httpService = inject(HttpService);
+  
+  // router = inject(Router);
+  // employee = {
+  //   name: '',
+  //   email: '',
+  //   phone: '',
+  //   age: '',
+  //   salary: ''
+  // };
 
+
+
+
+  // onSubmit(employeeForm: any) {
+  //   if (employeeForm.valid) {
+  //     this.httpService.createEmployee(this.employee).subscribe({
+  //       next: (response) => {
+  //         console.log('Employee added successfully', response);
+  //         this.router.navigate(['/employee-list']);
+  //       },
+  //       error: (error) => {
+  //         console.error('Error adding employee', error);
+  //       }
+  //     });
+  //   } else {
+  //     console.error('Form is invalid');
+  //   }
+  // }
+
+  employee:IEmployee
+  constructor(private service: HttpService,private router:Router)
+  {
+    this.employee={
+      name: '',
+    email: '',
+    phone: '',
+    age: '',
+    salary: ''
     }
-    var result = this.httpService.createEmployee(employee).subscribe(() => {
-        console.log("success");
-      });
+
   }
-}
+
+  onSubmit() {
+
+        this.service.createEmployee(this.employee).subscribe({
+          next: (response) => {
+            console.log('Employee added successfully', response);
+            window.location.assign('/app-employee-list')
+          },
+          error: (error) => {
+            console.error('Error adding employee', error);
+          }
+        });
+
+      //   if (this.employee.name && this.employee.email) { // Add additional validation if needed
+      //     this.service.createEmployee(this.employee).subscribe({
+      //       next: (response) => {
+      //         console.log('Employee added successfully', response);
+      //         window.location.assign('/app-employee-list')
+      //       },
+      //       error: (error) => {
+      //         console.error('Error adding employee', error);
+      //       }
+      //     });
+      //   } else {
+      //     console.error('Form is invalid');
+      //   }
+      // }
+      } }
+
+    
+  
+   

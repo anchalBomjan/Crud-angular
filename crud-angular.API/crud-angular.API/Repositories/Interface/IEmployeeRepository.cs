@@ -8,10 +8,10 @@ namespace crud_angular.API.Repositories.Interface
         
         Task AddEmployeeAsync(Employee employee);
         Task<IEnumerable<Employee>> GetAllEmployees();
-        Task<Employee> GetEmployeeById(int id);
+        Task<Employee> GetEmployeeByIdAsync(int id);
 
         Task UpdateEmployeeAsync(int id, Employee employee);
-        Task DeleteEmployee(int id);
+        Task DeleteEmployeeAsync(int id);
         // Task<Employee> UpdateEmployee(Employee employee);
 
 

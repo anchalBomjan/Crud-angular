@@ -17,17 +17,34 @@ namespace crud_angular.API.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult>AddEmployee(Employee model)
+        public async Task<ActionResult>AddEmployee([FromBody] Employee model)
         {
-            try
-            {
-                await _repository.AddEmployeeAsync(model);
-                return Ok();
-            }
-            catch(Exception e )
-            {
-                return BadRequest(e.Message);
-            }
+
+
+            await _repository.AddEmployeeAsync(model);
+            return Ok(); // Check if the model state is valid
+            //if (!ModelState.IsValid)
+            //{
+            //    // Return a BadRequest response with validation errors
+            //    return BadRequest(ModelState);
+            //}
+
+            //try
+            //{
+            //    // Add the employee using your repository or service
+            //    await _repository.AddEmployeeAsync(model);
+
+            //    // Return a successful response
+            //    return Ok();
+            //}
+            //catch (Exception ex)
+            //{
+            //    // Log the exception and return a generic error response
+            //    // You might want to add more specific error handling here
+            //    return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while adding the employee.");
+            //}
+
+
         }
         // GET: api/Employees
         [HttpGet]
@@ -40,9 +57,9 @@ namespace crud_angular.API.Controllers
 
         // GET: api/Employees/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Employee>> GetEmployee(int id)
+        public async Task<ActionResult> GetEmployeeById(int id)
         {
-            var employee = await _repository.GetEmployeeById(id);
+            var employee = await _repository.GetEmployeeByIdAsync(id);
 
             if (employee == null)
             {
@@ -87,7 +104,7 @@ namespace crud_angular.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEmployee(int id)
         {
-           await _repository.DeleteEmployee(id);
+           await _repository.DeleteEmployeeAsync(id);
          
 
             return Ok();

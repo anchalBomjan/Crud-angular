@@ -18,8 +18,8 @@ apiUrl="https://localhost:44386"
   
   
  
-  createEmployee(employee: IEmployee): Observable<void> {
-    return this.http.post<void>(this.apiUrl +'/api/Employees', employee);
+  createEmployee(employee): Observable<any> {
+    return this.http.post(this.apiUrl + '/api/Employees', employee);
   }
   
 

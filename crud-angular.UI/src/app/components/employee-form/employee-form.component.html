@@ -1,6 +1,4 @@
-<!-- <p>employee-form works!</p> -->
-
-<div class="p-6 mt-4">
+<!-- <div class="p-6 mt-4">
 
     <div class="shadow p-6">
         <h4>Create Employe Form </h4>
@@ -59,5 +57,212 @@
 </div>
 
 
- 
- 
+  -->
+
+<!-- 
+  <div class="p-6 mt-4">
+    <div class="shadow p-6">
+        <h4>Create Employee Form</h4>
+        <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+            <div class="w-full flex flex-wrap">
+                <mat-form-field class="w-full">
+                    <mat-label>Name</mat-label>
+                    <input type="text" matInput placeholder="Name" [(ngModel)]="employee.name" name="name" required />
+                    <div *ngIf="employeeForm.submitted || employeeForm.form.controls['name']?.dirty">
+                        <div *ngIf="employeeForm.form.controls['name']?.errors?.['required']" class="error">
+                            Name is required.
+                        </div>
+                    </div>
+                </mat-form-field>
+            </div>
+            <div class="w-full flex flex-wrap">
+                <mat-form-field class="w-full">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput placeholder="Email" [(ngModel)]="employee.email" name="email" required email />
+                    <div *ngIf="employeeForm.submitted || employeeForm.form.controls['email']?.dirty">
+                        <div *ngIf="employeeForm.form.controls['email']?.errors?.['required']" class="error">
+                            Email is required.
+                        </div>
+                        <div *ngIf="employeeForm.form.controls['email']?.errors?.['email']" class="error">
+                            Invalid email format.
+                        </div>
+                    </div>
+                </mat-form-field>
+            </div>
+            <div class="w-full flex flex-wrap">
+                <mat-form-field class="w-full">
+                    <mat-label>Phone</mat-label>
+                    <input type="text" matInput placeholder="Phone" [(ngModel)]="employee.phone" name="phone" />
+                </mat-form-field>
+            </div>
+            <div class="w-full flex flex-wrap">
+                <mat-form-field class="w-full">
+                    <mat-label>Age</mat-label>
+                    <input type="number" matInput placeholder="Age" [(ngModel)]="employee.age" name="age" />
+                </mat-form-field>
+            </div>
+            <div class="w-full flex flex-wrap">
+                <mat-form-field class="w-full">
+                    <mat-label>Salary</mat-label>
+                    <input type="text" matInput placeholder="Salary" [(ngModel)]="employee.salary" name="salary" />
+                </mat-form-field>
+            </div>
+            <div class="flex justify-center">
+                <button mat-raised-button color="primary" [disabled]="employeeForm.invalid">Save</button>
+            </div>
+        </form>
+    </div>
+</div> -->
+
+<div class="container border border-dark mt-5">
+    
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+    
+        <div class="mb-3 mt-3">
+            <label for="exampleInputPostTitle" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="exampleInputPostTitle" aria-describedby="emailHelp" [(ngModel)]="employee.name" name="UserName">
+          </div>
+    
+        <div class="mb-3 mt-3">
+          <label for="exampleInputDescription" class="form-label">Email</label>
+          <input type="email" class="form-control" id="exampleInputDescription" aria-describedby="emailHelp" [(ngModel)]="employee.email" name="User Email">
+        </div>
+    
+        <button type="submit" class="btn btn-primary mb-3">Submit</button>
+        
+      </form>
+    </div>
+
+    <!-- <div class="container border border-dark mt-5">
+        <form #form="ngForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3 mt-3">
+            <label for="exampleInputPostTitle" class="form-label">Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputPostTitle"
+              aria-describedby="emailHelp"
+              [(ngModel)]="employee.name"
+              name="name"
+              required
+            />
+            <div *ngIf="form.submitted || form.controls['name']?.dirty">
+              <div *ngIf="form.controls['name']?.errors?.['required']" class="text-danger">
+                Full Name is required.
+              </div>
+            </div>
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="exampleInputDescription" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputDescription"
+              aria-describedby="emailHelp"
+              [(ngModel)]="employee.email"
+              name="email"
+              required
+              email
+            />
+            <div *ngIf="form.submitted || form.controls['email']?.dirty">
+              <div *ngIf="form.controls['email']?.errors?.['required']" class="text-danger">
+                Email is required.
+              </div>
+              <div *ngIf="form.controls['email']?.errors?.['email']" class="text-danger">
+                Invalid email format.
+              </div>
+            </div>
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="exampleInputPhone" class="form-label">Phone</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputPhone"
+              aria-describedby="phoneHelp"
+              [(ngModel)]="employee.phone"
+              name="phone"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="exampleInputAge" class="form-label">Age</label>
+            <input
+              type="number"
+              class="form-control"
+              id="exampleInputAge"
+              aria-describedby="ageHelp"
+              [(ngModel)]="employee.age"
+              name="age"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="exampleInputSalary" class="form-label">Salary</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputSalary"
+              aria-describedby="salaryHelp"
+              [(ngModel)]="employee.salary"
+              name="salary"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary mb-3">Submit</button>
+        </form>
+      </div> -->
+      
+    
+
+     <!-- <div class="p-6 mt-4">
+        <div class="shadow p-6">
+            <h4>Create Employee Form</h4>
+            <form #form="ngForm" (ngSubmit)="onSubmit()">
+                <div class="w-full flex flex-wrap">
+                    <mat-form-field class="w-full">
+                        <mat-label>Name</mat-label>
+                        <input type="text" matInput placeholder="Name" [(ngModel)]="employee.name" name="name" required />
+                        <div *ngIf="form.submitted || form.controls['name']?.dirty">
+                            <div *ngIf="form.controls['name']?.errors?.['required']" class="text-danger">
+                                Name is required.
+                            </div>
+                        </div>
+                    </mat-form-field>
+                </div>
+                <div class="w-full flex flex-wrap">
+                    <mat-form-field class="w-full">
+                        <mat-label>Email</mat-label>
+                        <input type="email" matInput placeholder="Email" [(ngModel)]="employee.email" name="email" required email />
+                        <div *ngIf="form.submitted || form.controls['email']?.dirty">
+                            <div *ngIf="form.controls['email']?.errors?.['required']" class="text-danger">
+                                Email is required.
+                            </div>
+                            <div *ngIf="form.controls['email']?.errors?.['email']" class="text-danger">
+                                Invalid email format.
+                            </div>
+                        </div>
+                    </mat-form-field>
+                </div>
+                <div class="w-full flex flex-wrap">
+                    <mat-form-field class="w-full">
+                        <mat-label>Phone</mat-label>
+                        <input type="text" matInput placeholder="Phone" [(ngModel)]="employee.phone" name="phone" />
+                    </mat-form-field>
+                </div>
+                <div class="w-full flex flex-wrap">
+                    <mat-form-field class="w-full">
+                        <mat-label>Age</mat-label>
+                        <input type="number" matInput placeholder="Age" [(ngModel)]="employee.age" name="age" />
+                    </mat-form-field>
+                </div>
+                <div class="w-full flex flex-wrap">
+                    <mat-form-field class="w-full">
+                        <mat-label>Salary</mat-label>
+                        <input type="text" matInput placeholder="Salary" [(ngModel)]="employee.salary" name="salary" />
+                    </mat-form-field>
+                </div>
+                <div class="flex justify-center">
+                    <button mat-raised-button color="primary" [disabled]="form.invalid">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+      -->

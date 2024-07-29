@@ -11,7 +11,7 @@ using crud_angular.API.Data;
 namespace crud_angular.API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240723111903_firstmigration")]
+    [Migration("20240726064518_firstmigration")]
     partial class firstmigration
     {
         /// <inheritdoc />

@@ -20,7 +20,7 @@ namespace crud_angular.API.Repositories
             return await _context.Employees.ToListAsync();
         }
 
-        public async Task<Employee> GetEmployeeById(int id)
+        public async Task<Employee> GetEmployeeByIdAsync(int id)
         {
             return await _context.Employees.FindAsync(id);
         }
@@ -34,7 +34,7 @@ namespace crud_angular.API.Repositories
         // we can do like this ways also
         public async Task AddEmployeeAsync(Employee employee)
         {
-            _context.Employees.Add(employee);
+            await _context.Set<Employee>().AddAsync(employee);
             await _context.SaveChangesAsync();
             
         }
@@ -58,7 +58,7 @@ namespace crud_angular.API.Repositories
             //return employee;
         }
 
-        public async Task DeleteEmployee(int id)
+        public async Task DeleteEmployeeAsync(int id)
         {
             var employee = await _context.Employees.FindAsync(id);
             if (employee == null)

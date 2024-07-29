@@ -20,7 +20,7 @@ employeeList:IEmployee[]=[];
 httpService=inject(HttpService);
 displayedColumns: string[] = ['id', 'name', 'email', 'phone',  'age','salary'];
 
-onload(){
+onload():void{
  this.httpService.getallEmployee().subscribe(result=>{
    this.employeeList=result;
    console.log(this.employeeList);
