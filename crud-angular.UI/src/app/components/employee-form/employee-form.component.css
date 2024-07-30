@@ -1,0 +1,23 @@
+/* Ensure that the container uses flexbox to center its content */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Adjust this value as needed */
+   
+  }
+  
+  
+  .form-container {
+    width: 100%;
+    max-width: 600px; /* Adjust this value to control the form's max width */
+  }
+  
+  .form-field {
+    margin-bottom: 16px; /* Add space between form fields */
+  }
+  
+  mat-form-field {
+    width: 100%; /* Full width of the container */
+  }
+  
