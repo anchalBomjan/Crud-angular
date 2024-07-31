@@ -33,6 +33,7 @@ edit(id:number){
 delete(id:number){
   this.httpService.deleteEmployee(id).subscribe(() => {
     console.log('deleted');
+    window.alert("Deleted");
     this.employeeList=this.employeeList.filter(x=>x.id!=id);
 
   });

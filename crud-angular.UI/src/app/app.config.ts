@@ -10,19 +10,19 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser'
+import { provideToastr, ToastrModule } from 'ngx-toastr';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
      provideAnimationsAsync(),
-     provideHttpClient(), provideClientHydration(),
+     provideHttpClient(), provideClientHydration(),provideToastr(),
     
      { provide: MatFormFieldModule },
      { provide: MatInputModule },
      { provide: MatButtonModule },
      { provide: ReactiveFormsModule },
-     { provide: FormsModule }
-  
+     { provide: FormsModule },
   
   
   

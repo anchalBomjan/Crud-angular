@@ -6,11 +6,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-employee-form',
   standalone: true,
-  imports: [MatInputModule, MatButtonModule, FormsModule, CommonModule],
+  imports: [MatInputModule, MatButtonModule, FormsModule, CommonModule, ToastrModule],
   templateUrl: './employee-form.component.html',
   styleUrls: ['./employee-form.component.css']
 })
@@ -19,7 +20,8 @@ export class EmployeeFormComponent {
   employeeId!: number;
   isEdit: boolean = false;
 
-  constructor(private service: HttpService, private router: Router, private route: ActivatedRoute) {
+  constructor(private service: HttpService, private router: Router,
+     private route: ActivatedRoute, private toastr: ToastrService) {
     // Initialize the employee object
     this.employee = {
       name: '',
@@ -47,8 +49,10 @@ export class EmployeeFormComponent {
     if (this.isEdit) {
       this.service.updateEmployee(this.employeeId, this.employee).subscribe({
         next: (response) => {
+          this.toastr.success("Employee Edit successfully");
           console.log('Employee Edit successfully', response);
-          window.location.assign('/app-employee-list')
+          // window.location.assign('/app-employee-list')
+          this.router.navigate(['/app-employee-list']);
         },
         error: (error) => {
           console.error('Error Editing employee', error);
@@ -57,6 +61,7 @@ export class EmployeeFormComponent {
     } else {
       this.service.createEmployee(this.employee).subscribe({
         next: (response) => {
+          this.toastr.success("Employee Added  successfully");
           console.log('Employee added successfully', response);
           window.location.assign('/app-employee-list')
         },
