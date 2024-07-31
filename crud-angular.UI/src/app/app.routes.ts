@@ -10,5 +10,6 @@ export const routes: Routes = [
    
   //{ path: '**', redirectTo: 'employee-list' } // Wildcard route for 404
  
+  { path: 'employee/:id', component: EmployeeFormComponent },
 
 ];

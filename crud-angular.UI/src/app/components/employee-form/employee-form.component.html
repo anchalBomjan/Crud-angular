@@ -87,7 +87,14 @@
 
  <div class="container">
   <div class="shadow p-6 form-container">
-    <h4>Create Employee Form</h4>
+
+    @if(isEdit){
+
+      <h4>Edit Employee Details</h4>
+    }@else{
+      <h4>Create Employee Form</h4>
+    }
+  
     <form (ngSubmit)="onSubmit()" #employeeForm="ngForm">
       <div class="form-field">
         <mat-form-field appearance="fill">
@@ -130,8 +137,14 @@
           <input matInput [(ngModel)]="employee.salary" name="salary">
         </mat-form-field>
       </div>
+      @if(isEdit){
+        <button mat-raised-button type="submit" [disabled]="!employeeForm.form.valid">Edit</button>
 
-      <button mat-raised-button type="submit" [disabled]="!employeeForm.form.valid">Submit</button>
+      }@else{
+        <button mat-raised-button type="submit" [disabled]="!employeeForm.form.valid">Submit</button>
+      }
+       
+      
     </form>
   </div>
 </div>

@@ -38,24 +38,40 @@ namespace crud_angular.API.Repositories
             await _context.SaveChangesAsync();
             
         }
+        //public async Task UpdateEmployeeAsync(int id, Employee model)
+        //{
+        //    var employee = await _context.Employees.FindAsync(id);
+        //    if (employee == null)
+        //    {
+        //        throw new Exception("Employee is not found");
+        //    }
+
+        //    employee.Name = model.Name;
+        //    employee.Email = model.Email;
+        //    employee.Phone=model.Phone;
+        //    employee.Age = model.Age;
+        //    employee.Salary = model.Salary;
+        //    // Save the changes to the database
+        //    await _context.SaveChangesAsync();
+
+        //    // Return the updated employee if needed
+        //    //return employee;
+        //}
+
         public async Task UpdateEmployeeAsync(int id, Employee model)
         {
-            var employee = await _context.Employees.FindAsync(id);
-            if (employee == null)
+            var employeee = await _context.Employees.FindAsync(id);
+            if (employeee == null)
             {
-                throw new Exception("Employee is not found");
+                throw new Exception("Employee not found");
             }
-          
-            employee.Name = model.Name;
-            employee.Email = model.Email;
-            employee.Phone=model.Phone;
-            employee.Age = model.Age;
-            employee.Salary = model.Salary;
-            // Save the changes to the database
+            employeee.Name = model.Name;
+            employeee.Email = model.Email;
+            employeee.Phone = model.Phone;
+            employeee.Age = model.Age;
+            employeee.Salary = model.Salary;
+           
             await _context.SaveChangesAsync();
-
-            // Return the updated employee if needed
-            //return employee;
         }
 
         public async Task DeleteEmployeeAsync(int id)

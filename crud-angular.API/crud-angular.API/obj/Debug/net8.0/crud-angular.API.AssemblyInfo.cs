@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("crud-angular.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95795dbcd57e95c93e8f22bc568488f0c3b9742f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c77d86207c1640e359cd9cfea4e705f987dc0b9b")]
 [assembly: System.Reflection.AssemblyProductAttribute("crud-angular.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("crud-angular.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
